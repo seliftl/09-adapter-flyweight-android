@@ -30,11 +30,11 @@ _Note: in the opposite to the assignment of last week the `FighterFactory` is a 
 
 To display your list of fighters the layout `activity_main.xml` contains a list view.
 But it is not possible to display all attributes a class has with the default `ArrayAdapter<>`.
-To modify the default behavior of `ArrayAdapter<>` and `ListView` a custom adapter has to implemented which is responsible to move the data from your object into a view element.
+To modify the default behavior of `ArrayAdapter<>` and `ListView` a custom adapter has to implemented which is responsible for moving the data from your object into a view element.
 
 To implement a custom adapter (for a `ListView`) you have to implement a class which extends the default `ArrayAdapter<>`.
 
-_Hint: this [tutorial](https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView) is good starting point if you have no clue how to implement a custom `ArrayAdapter`_
+_Hint: this [tutorial](https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView#using-a-custom-arrayadapter) is good starting point if you have no clue how to implement a custom `ArrayAdapter`_
 
 1. Implement a custom `FighterListAdapter`.
 2. Create an instance of your `FighterListAdapter` in the `MainActivity`.
