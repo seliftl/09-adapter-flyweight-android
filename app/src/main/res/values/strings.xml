@@ -3,6 +3,8 @@
     <string name="no_item_selected_toast">No item was selected</string>
     <string name="fighter_image_description">Fighter image</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">android.support.design.widget.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="party_switch_empire">Empire</string>
+    <string name="party_switch_rebellion">Rebellion</string>
     <string-array name="page_sizes">
         <item>1</item>
         <item>5</item>

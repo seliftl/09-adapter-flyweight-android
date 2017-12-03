@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.a09.model.imperium;
+package de.fhro.inf.prg3.a09.model.empire;
 
 import android.graphics.drawable.Drawable;
 

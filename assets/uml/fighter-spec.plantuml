@@ -1,0 +1,38 @@
+@startuml FighterSpec
+
+package de.fhro.inf.prg3.a09.model {
+    class Fighter {
+        -pilot: String
+        -fighterImage: Drawable
+        +Fighter(pilot: String, fighterImage: Drawable)
+        +{abstract} getFighterType(): String
+        +getPilot(): String
+        +getFighterImage(): Drawable
+    }
+
+    package empire {
+        class TieBomber extends Fighter {
+
+        }
+        class TieFighter extends Fighter {
+
+        }
+        class TieInterceptor extends Fighter {
+
+        }
+    }
+
+    package rebellion {
+        class AWing extends Fighter {
+
+        }
+        class XWing extends Fighter {
+
+        }
+        class YWing extends Fighter {
+            
+        }
+    }
+}
+
+@enduml

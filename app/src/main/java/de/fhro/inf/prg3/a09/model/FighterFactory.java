@@ -8,9 +8,9 @@ import android.graphics.drawable.Drawable;
 import java.util.Random;
 
 import de.fhro.inf.prg3.a09.R;
-import de.fhro.inf.prg3.a09.model.imperium.TieBomber;
-import de.fhro.inf.prg3.a09.model.imperium.TieFighter;
-import de.fhro.inf.prg3.a09.model.imperium.TieInterceptor;
+import de.fhro.inf.prg3.a09.model.empire.TieBomber;
+import de.fhro.inf.prg3.a09.model.empire.TieFighter;
+import de.fhro.inf.prg3.a09.model.empire.TieInterceptor;
 import de.fhro.inf.prg3.a09.model.rebellion.AWing;
 import de.fhro.inf.prg3.a09.model.rebellion.XWing;
 import de.fhro.inf.prg3.a09.model.rebellion.YWing;
@@ -68,6 +68,6 @@ public class FighterFactory {
 
     public enum Party {
         Rebellion,
-        Imperium
+        Empire
     }
 }

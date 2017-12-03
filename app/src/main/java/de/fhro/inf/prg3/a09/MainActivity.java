@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import java.util.Locale;
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private static final String LOGGING_TAG = MainActivity.class.getName();
     private FighterFactory fighterFactory;
     private ArrayAdapter<CharSequence> pageSizeAdapter;
+    private Switch partySwitch;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,17 +35,20 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 R.layout.support_simple_spinner_dropdown_item
         );
 
-        final Spinner pageSizeSpinner = findViewById(R.id.pageSizeSpinner);
+        final Spinner pageSizeSpinner = findViewById(R.id.page_size_spinner);
         pageSizeSpinner.setAdapter(pageSizeAdapter);
         pageSizeSpinner.setOnItemSelectedListener(this);
 
-        final ListView fighterListView = findViewById(R.id.fighterListView);
+        partySwitch = findViewById(R.id.party_switch);
+
+        final ListView fighterListView = findViewById(R.id.fighter_list_view);
         /* TODO set the adapter of the list view to an instance of your own adapter
          * remember to keep a reference to the adapter to be able to interact with it later */
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        boolean createEmpireFighter = partySwitch.isChecked();
         int pageSize = Integer.parseInt(pageSizeAdapter.getItem(position).toString());
         Log.d(LOGGING_TAG, String.format(Locale.getDefault(), "Selected page size: %d", pageSize));
         /* TODO generate as many new fighters as the selected page size

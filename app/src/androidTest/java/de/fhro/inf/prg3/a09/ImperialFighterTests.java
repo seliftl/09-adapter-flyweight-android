@@ -13,9 +13,9 @@ import org.junit.runner.RunWith;
 
 import de.fhro.inf.prg3.a09.model.Fighter;
 import de.fhro.inf.prg3.a09.model.NameGenerator;
-import de.fhro.inf.prg3.a09.model.imperium.TieBomber;
-import de.fhro.inf.prg3.a09.model.imperium.TieFighter;
-import de.fhro.inf.prg3.a09.model.imperium.TieInterceptor;
+import de.fhro.inf.prg3.a09.model.empire.TieBomber;
+import de.fhro.inf.prg3.a09.model.empire.TieFighter;
+import de.fhro.inf.prg3.a09.model.empire.TieInterceptor;
 
 import static junit.framework.Assert.assertNotNull;
 
