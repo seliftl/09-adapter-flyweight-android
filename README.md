@@ -3,7 +3,8 @@ _This is an assignment to the class [Programmieren 3](https://hsro-inf-prg3.gith
 # Assignment 9: Adapter and Flyweight
 
 This assignment covers the two design patterns _Adapter_ and _Flyweight_.
-At first you have to implement an adapter to display some items in a list with a custom row element.
+
+At first you have to implement an adapter to display items in a list with a custom row element.
 Afterwards you will refactor the given app to improve the performance by implementing the flyweight pattern.
 
 ## Setup
@@ -15,7 +16,7 @@ Afterwards you will refactor the given app to improve the performance by impleme
 ## Adapter
 
 The given app generates a random fleet of Star Wars space fighters.
-The following UML show the class hierarchy of all fighter classes:
+The following UML show the class hierarchy of the fighter classes:
 
 ![Fighter spec](./assets/images/FighterSpec.svg)
 
@@ -35,14 +36,14 @@ To implement a custom adapter (for a `ListView`) you have to implement a class w
 
 _Hint: this [tutorial](https://github.com/codepath/android_guides/wiki/Using-an-ArrayAdapter-with-ListView) is good starting point if you have no clue how to implement a custom `ArrayAdapter`_
 
-1. implement a custom `FighterListAdapter`
-2. create an instance of your `FighterListAdapter` in the `MainActivity`
-3. assign it to the instance `fighterListView` (see line 45)
-4. complete the method `onItemSelected(...)` to display your first fighters
+1. Implement a custom `FighterListAdapter`.
+2. Create an instance of your `FighterListAdapter` in the `MainActivity`.
+3. Assign it to the instance `fighterListView` (see line 45).
+4. Complete the method `onItemSelected(...)` to display your first fighters.
 
-_Remark: an instance of `FighterFactory` is already created, use it to create new fighters._
+_Remark: an `FighterFactory` instance is already declared and created in the `MainActivity`, use it to create new fighters within the `onItemSelected(...)` method._
 
-_Remark 2: If you don't get the switch between empire and rebellion working, ignore it for the moment!_
+_Remark 2: If you don't get the switch between empire and rebellion working, ignore it for now._
 
 When you have completed all the above steps your app should look like that:
 
@@ -50,12 +51,12 @@ When you have completed all the above steps your app should look like that:
 
 ## Flyweight - Part 1
 
-As you may have noticed if you set the page size to 20 or above, the performance of the app is getting worse the more fighter instances you created.
+As you may have noticed if you set the page size to 20 or above, the performance of the app is getting worse the more fighter instances you have created.
 If you had a look at the `FighterFactory` you might have seen that every time a fighter has to be created the factory loads the corresponding image into the memory and assigns the loaded image to the created fighter instance.
 
 Here comes the Flyweight pattern into play.
 
-1. Refactor the class `FighterFactory` to load all images at once.
+1. Refactor the class `FighterFactory` to load all images in a cache when the factory is created.
 2. Modify the process of creation to reuse the already loaded images.
 
 _Hint: think of a data structure that enables you to retrieve the matching image with a single call (e.g. `Map<String, Drawable>` or `Map<Class<?>, Drawable>`._
@@ -65,7 +66,7 @@ _Hint: think of a data structure that enables you to retrieve the matching image
 To further improve the performance of the app you can use the Android built-in `RecyclerView`. [This document](https://developer.android.com/training/material/lists-cards.html) explains how to use the `RecyclerView` in combination with so called _card_ elements.
 As the `fighter_item.xml` is already a _card_ element you can ignore all `.xml` parts!
 
-The concept of the `RecyclerView` is also based on the Flyweight pattern but you don't have to implement it on your own.
+The concept of the `RecyclerView` is also based on the Flyweight pattern.
 A `RecyclerView` keeps track of all created _row_ elements and reuses (rebinds) them when they aren't visible any more i.e. when they left the screen because you scrolled up or down.
 
 To refactor the app to use a `RecyclerView` you have to follow these steps:
@@ -88,7 +89,7 @@ To refactor the app to use a `RecyclerView` you have to follow these steps:
 5. Assign a new instance of `LinearLayoutManager` as layout manager to your `RecyclerView`.
 6. Adopt the changes in the method `onItemSelected(...)`
 
-_Remark: to handle different page sizes you have two options: create a new `FighterRecyclerViewAdapter` instance whenever the page size changes or add a `clear()` and a `addAll(...)_` method to your `FighterRecyclerViewAdapter` implementation to handle manipulation of the underlying list. If you choose the second option you have to tell (`notify`) the `super` class that your collection was modified by calling `notifyDataSetChanged();`_
+_Remark: to handle different page sizes you have two options: create a new `FighterRecyclerViewAdapter` instance whenever the page size changes or add a `clear()` and a `addAll(...)` method to your `FighterRecyclerViewAdapter` implementation to handle manipulation of the underlying list. If you choose the second option you have to tell (`notify`) the `super` class that your collection was modified by calling `notifyDataSetChanged();`_
 
 ### A word about when to use a `RecyclerView`
 
