@@ -24,11 +24,11 @@ To get an overview about your fleet the app shows all your fighters in a `ListVi
 * the name of the pilot
 
 In the last assignments we used the default `ArrayAdapter<>` to transfer our data to a `ListView`.
-This is (more or less) only possible for `String` values (or by overriding the `toString()` method as we did last week) but if you want to display data in more complex elements containing more than just a `TextView` you have to implement a custom _adapter_ which is aware of the custom structure of your element and is able to assign the data to the correct nodes.
+This is (more or less) only possible for `String` values (or by overriding the `toString()` method as we did last week) but if you want to display data in more complex elements containing more than just a `TextView` you have to implement a custom _adapter_ which is aware of the structure of your element and is able to assign the data correctly.
 
 To accomplish this, the given app already contains a custom `ArrayAdapter<>` (`FighterListAdapter`).
 The class contains a `private static` nested class which serves as a container for the view element (a so called view holder, more on that later).
-Furthermore it overrides the method `getView()` where it inflates the custom view element (if necessary) and transfers the data from a `Fighter` instance to the view element (the adaption process).
+Furthermore it overrides the method `getView()` where it inflates the custom view element (if necessary) and transfers the data from a `Fighter` instance to the view element (the adaptation process).
 
 ## Flyweight - Part 1
 
@@ -36,7 +36,7 @@ The count of fighters generated is hard coded in the class `MainActivity` (`FIGH
 If you increase the count to 50 or above you'll notice that the emulator won't start anymore because the app loads too many data to the memory while generating the fighters.
 If you already had a look at the `FighterFactory` you might have seen that every time a fighter has to be created the factory loads the corresponding image into the memory and assigns the loaded image to the created fighter instance.
 
-Here comes the Flyweight pattern into play.
+Here comes the Flyweight pattern into play:
 
 1. Think about what are the intrinsic and what are the extrinsic parts of the `Fighter` class.  (In case you don't remember the terms or the concept have a look [here](https://hsro-inf-prg3.github.io/09ln-proxy-adapter-flyweight/#flyweight).)
 1. Refactor the class `FighterFactory` to follow the Flyweight pattern by caching the intrinsic parts.
@@ -52,7 +52,7 @@ As the `fighter_item.xml` is already a _card_ element you can ignore all `.xml` 
 The concept of the `RecyclerView` is also based on the Flyweight pattern.
 A `RecyclerView` keeps track of all created _row_ elements and reuses (rebinds) them when they aren't visible any more i.e. when they left the screen because you scrolled up or down.
 
-The following image demonstrates the concept visualy (borrowed from [grokkingandroid.com](https://www.grokkingandroid.com/first-glance-androids-recyclerview/)):
+The following image demonstrates the concept visually (borrowed from [grokkingandroid.com](https://www.grokkingandroid.com/first-glance-androids-recyclerview/)):
 
 ![Recycler View - credits to grokkingandroid.com](http://www.grokkingandroid.com/wordpress/wp-content/uploads/2014/08/recycling_of_views.png)
 
@@ -78,21 +78,22 @@ Refactor the app to use a `RecyclerView` to improve the performance by following
 1. Create an instance of your `FighterRecyclerViewAdapter` with a list of previously generated `Fighter`s and assign it to the reference of your `RecyclerView`.
 
 To implement a custom `RecyclerView.Adapter<>` you also have to implement a new view holder which extends `RecyclerView.ViewHolder`.
+
 View holders are wrappers for custom view elements.
 When created they get a reference to the view element, unwrap the single elements and _"cache"_ them as private fields.
 Later on you're using the view holder instance to pass data to the view element either by accessing the _"cached"_ fields directly or by calling convenience methods (like in the given `FighterListAdapter`).
 
 In the given use case you can implement the view holder as a `static` nested class.
 The Android docs and the blog entry on _grokkingandroid.com_ are containing samples how the view holder may be implemented.
-Beside the view holder you're required to implement the methods:
+Beside the view holder you're required to implement these methods:
 
-* `onCreateViewHolder(...)` which inflates your custom view element (remember the given `FighterListAdapter`)
-* `onBindViewHolder(...)` which is doing the adaption work to transfer the data from a `Fighter` to your view element
+* `onCreateViewHolder(...)` which inflates your custom view element (see the given `FighterListAdapter`)
+* `onBindViewHolder(...)` which is doing the adaptation work to transfer the data from a `Fighter` instance to your view element using your custom view holder
 * `getItemCount()`
 
-When you have completed the assignment the overall performance of the app should be mutch better.
+When you have completed the assignment the overall performance of the app should be much better.
 
-_Side note: Keep in mind that the image handling as it was accomplished in this assignment is **not** best practice but was just done this way to provoke performance problems. In real world applications you would just pass the id of an image resource to the `ImageView` to let Android care about loading the image._
+_Side note: Keep in mind that the image handling as it was accomplished in this assignment is **not** best practice but was just done this way to provoke performance problems. In real world applications you would just pass the id (using the `R` class) of an image resource to the `ImageView` to let Android care about loading the image._
 
 ### A word about when to use a `RecyclerView`
 
