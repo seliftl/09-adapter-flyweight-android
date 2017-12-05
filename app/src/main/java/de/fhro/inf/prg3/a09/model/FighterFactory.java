@@ -31,43 +31,24 @@ public class FighterFactory {
         random = new Random();
     }
 
-    public Fighter createFighter(Party party){
-        switch (party){
-            case Rebellion:
-                return createRebellionFighter(random.nextInt(3));
-            default:
-                return createImperialFighter(random.nextInt(3));
-        }
-    }
-
-    private Fighter createRebellionFighter(int index){
-        switch (index) {
+    public Fighter createFighter() {
+        switch (random.nextInt(6)) {
             case 0:
                 return new AWing(nameGenerator.generateName(), loadImage(R.drawable.awing));
             case 1:
                 return new XWing(nameGenerator.generateName(), loadImage(R.drawable.xwing));
-            default:
+            case 2:
                 return new YWing(nameGenerator.generateName(), loadImage(R.drawable.ywing));
-        }
-    }
-
-    private Fighter createImperialFighter(int index){
-        switch (index) {
-            case 0:
+            case 3:
                 return new TieBomber(nameGenerator.generateName(), loadImage(R.drawable.tiebomber));
-            case 1:
+            case 4:
                 return new TieFighter(nameGenerator.generateName(), loadImage(R.drawable.tiefighter));
             default:
                 return new TieInterceptor(nameGenerator.generateName(), loadImage(R.drawable.tieinterceptor));
         }
     }
 
-    private Drawable loadImage(int imageId){
+    private Drawable loadImage(int imageId) {
         return new BitmapDrawable(context.getResources(), BitmapFactory.decodeResource(context.getResources(), imageId));
-    }
-
-    public enum Party {
-        Rebellion,
-        Empire
     }
 }
