@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.a09.model;
+package de.thro.inf.prg3.a09.model;
 
 import android.graphics.drawable.Drawable;
 

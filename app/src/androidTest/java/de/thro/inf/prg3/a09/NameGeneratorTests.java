@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.a09;
+package de.thro.inf.prg3.a09;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -8,9 +8,9 @@ import android.util.Log;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.fhro.inf.prg3.a09.model.NameGenerator;
+import de.thro.inf.prg3.a09.model.NameGenerator;
 
-import static de.fhro.inf.prg3.a09.TestConstants.LOGGING_TAG;
+import static de.thro.inf.prg3.a09.TestConstants.LOGGING_TAG;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 

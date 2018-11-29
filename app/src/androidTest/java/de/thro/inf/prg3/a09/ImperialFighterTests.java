@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.a09;
+package de.thro.inf.prg3.a09;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,11 +11,11 @@ import android.support.test.runner.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import de.fhro.inf.prg3.a09.model.Fighter;
-import de.fhro.inf.prg3.a09.model.NameGenerator;
-import de.fhro.inf.prg3.a09.model.empire.TieBomber;
-import de.fhro.inf.prg3.a09.model.empire.TieFighter;
-import de.fhro.inf.prg3.a09.model.empire.TieInterceptor;
+import de.thro.inf.prg3.a09.model.Fighter;
+import de.thro.inf.prg3.a09.model.NameGenerator;
+import de.thro.inf.prg3.a09.model.empire.TieBomber;
+import de.thro.inf.prg3.a09.model.empire.TieFighter;
+import de.thro.inf.prg3.a09.model.empire.TieInterceptor;
 
 import static junit.framework.Assert.assertNotNull;
 

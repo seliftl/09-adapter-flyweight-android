@@ -1,4 +1,4 @@
-package de.fhro.inf.prg3.a09.adapter;
+package de.thro.inf.prg3.a09.adapter;
 
 import android.content.Context;
 import android.graphics.drawable.Drawable;
@@ -10,8 +10,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.fhro.inf.prg3.a09.R;
-import de.fhro.inf.prg3.a09.model.Fighter;
+import de.thro.inf.prg3.a09.R;
+import de.thro.inf.prg3.a09.model.Fighter;
 
 /**
  * @author Peter Kurfer

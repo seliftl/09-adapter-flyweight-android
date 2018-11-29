@@ -1,8 +1,8 @@
-package de.fhro.inf.prg3.a09.model.empire;
+package de.thro.inf.prg3.a09.model.empire;
 
 import android.graphics.drawable.Drawable;
 
-import de.fhro.inf.prg3.a09.model.Fighter;
+import de.thro.inf.prg3.a09.model.Fighter;
 
 /**
  * @author Peter Kurfer
