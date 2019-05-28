@@ -2,6 +2,7 @@ package de.thro.inf.prg3.a09.model.rebellion;
 
 import android.graphics.drawable.Drawable;
 
+import de.thro.inf.prg3.a09.flyweight.Flyweight;
 import de.thro.inf.prg3.a09.model.Fighter;
 
 /**
@@ -10,8 +11,8 @@ import de.thro.inf.prg3.a09.model.Fighter;
 
 public class AWing extends Fighter {
 
-    public AWing(String pilot, Drawable fighterImage) {
-        super(pilot, fighterImage);
+    public AWing(String pilot, Flyweight flyweight) {
+        super(pilot, flyweight);
     }
 
     @Override

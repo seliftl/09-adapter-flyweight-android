@@ -5,6 +5,10 @@ import android.graphics.drawable.Drawable;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
+import java.io.PrintStream;
+
+import de.thro.inf.prg3.a09.flyweight.Flyweight;
+
 /**
  * @author Peter Kurfer
  */
@@ -12,19 +16,20 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 public abstract class Fighter {
 
     private final String pilot;
-    private final Drawable fighterImage;
+    private final Flyweight flyweight;
 
-    public Fighter(String pilot, Drawable fighterImage) {
+    public Fighter(String pilot, Flyweight flyweight) {
         this.pilot = pilot;
-        this.fighterImage = fighterImage;
+        this.flyweight = flyweight;
     }
 
     public String getPilot() {
         return pilot;
     }
 
-    public Drawable getFighterImage() {
-        return fighterImage;
+    // Woher?
+    public Drawable getFighterImage(){
+        return flyweight.getFighterImage();
     }
 
     public abstract String getFighterType();
@@ -49,5 +54,10 @@ public abstract class Fighter {
                 .append(getPilot())
                 .append(getFighterType())
                 .toHashCode();
+    }
+
+    void describe(PrintStream ps) {
+        // inject extrinsic state to flyweight
+        flyweight.describe(ps, this);
     }
 }
